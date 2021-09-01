@@ -68,5 +68,5 @@ printenv
 
 ## CI/CD
 
-This example uses [GitHub Actions](https://docs.github.com/en/actions) to build the main artifacts and to publish to [Docker Hub](https://hub.docker.com/)
+This example uses [GitHub Actions workflows](https://docs.github.com/en/actions) to build the main artifacts and to publish to [Docker Hub](https://hub.docker.com/)
 
