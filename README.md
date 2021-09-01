@@ -70,3 +70,30 @@ printenv
 
 This example uses [GitHub Actions workflows](https://docs.github.com/en/actions) to build the main artifacts and to publish to [Docker Hub](https://hub.docker.com/)
 
+GitHub Actions workflow configuration for the project:
+```shell
+.github/workflows/main
+```
+
+The configuration will perform the following steps:
+1. Checkout code from GitHub
+2. Setup Java 11
+3. Build the application using Maven
+4. Build Docker image
+5. Login and push image to Docker Hub
+
+The configuration will be triggered when:
+
+- Git Push on the `main` branch
+- Git Tag with a `v` prefix, e.g. `v1.0`
+- GitHub Pull Request on the `main` branch
+
+**Note: The Docker image will not be pushed for Pull Requests**
+
+### Important
+The workflow requires that you have set up two secrets in GitHub with the following names:
+- DOCKERHUB_USERNAME
+- DOCKERHUB_TOKEN
+
+These values should correspond to an Access Token that you have previous setup in Docker Hub.
+
