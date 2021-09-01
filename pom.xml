@@ -12,10 +12,8 @@
     <artifactId>spring-security-5-oauth2-login</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>spring-security-5-oauth2-login</name>
-    <description>Demo project for Spring Boot</description>
-    <properties>
-        <java.version>11</java.version>
-    </properties>
+    <description>Demo social login for Spring Boot</description>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -47,8 +45,19 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <finalName>${project.name}</finalName>
+                </configuration>
             </plugin>
         </plugins>
     </build>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+        <maven.compiler.release>11</maven.compiler.release>
+        <java.version>11</java.version>
+    </properties>
 
 </project>
