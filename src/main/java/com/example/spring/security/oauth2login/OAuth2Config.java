@@ -19,10 +19,10 @@ import org.springframework.security.oauth2.client.web.OAuth2AuthorizedClientRepo
 @Configuration
 public class OAuth2Config {
 
-    @Value("${spring.security.oauth2.client.registration.github.clientId:GITHUB_API_CLIENT_ID}")
+    @Value("${spring.security.oauth2.client.registration.github.clientId}")
     private String GITHUB_API_CLIENT_ID;
 
-    @Value("${spring.security.oauth2.client.registration.github.clientSecret:GITHUB_API_CLIENT_SECRET}")
+    @Value("${spring.security.oauth2.client.registration.github.clientSecret}")
     private String GITHUB_API_CLIENT_SECRET;
 
     @EnableWebSecurity

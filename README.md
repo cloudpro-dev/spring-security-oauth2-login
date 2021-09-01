@@ -13,16 +13,16 @@ Build the application:
 Run the application with GitHub credentials provided on the CLI:
 ```shell
 java \
-  -jar target/spring-security-5-oauth2-login.jar \
-  -D spring.security.oauth2.client.registration.github.clientId="d482bc606f86d1d696dd" \
-  -D spring.security.oauth2.client.registration.github.clientSecret="08a805c6a3cd2718f4ab17b5b90398fac966ea58"
+  -Dspring.security.oauth2.client.registration.github.clientId="d9c976bc9a08ca500bc3" \
+  -Dspring.security.oauth2.client.registration.github.clientSecret="af8530051f8b2127decee80b900dc55f578373ee" \
+  -jar target/spring-security-5-oauth2-login.jar
 ```
 
 ### Environment variables
 Execute using environment variables to pass the GitHub credentials which is more useful for containers:
 ```shell
-GITHUB_API_CLIENT_ID=d482bc606f86d1d696dd
-GITHUB_API_CLIENT_SECRET=08a805c6a3cd2718f4ab17b5b90398fac966ea58
+export GITHUB_API_CLIENT_ID=d9c976bc9a08ca500bc3
+export GITHUB_API_CLIENT_SECRET=af8530051f8b2127decee80b900dc55f578373ee
 java -jar target/spring-security-5-oauth2-login.jar
 ```
 
@@ -30,7 +30,7 @@ java -jar target/spring-security-5-oauth2-login.jar
 
 If you wish to use Maven to build and run the application locally:
 ```shell
-./mvnw spring-boot:run -Drun.jvmArguments="-D spring.security.oauth2.client.registration.github.clientId=d482bc606f86d1d696dd -D spring.security.oauth2.client.registration.github.clientSecret=08a805c6a3cd2718f4ab17b5b90398fac966ea58"
+./mvnw spring-boot:run -Dspring-boot.run.jvmArguments="-Dspring.security.oauth2.client.registration.github.clientId=d9c976bc9a08ca500bc3 -Dspring.security.oauth2.client.registration.github.clientSecret=af8530051f8b2127decee80b900dc55f578373ee"
 ```
 
 ## Containerisation
@@ -52,8 +52,8 @@ docker image build -t spring-security-5-oauth2-login:1.0 .
 Start the container:
 ```shell
 docker container run \
---env GITHUB_API_CLIENT_ID=d482bc606f86d1d696dd \
---env GITHUB_API_CLIENT_SECRET=08a805c6a3cd2718f4ab17b5b90398fac966ea58 \
+--env GITHUB_API_CLIENT_ID=d9c976bc9a08ca500bc3 \
+--env GITHUB_API_CLIENT_SECRET=af8530051f8b2127decee80b900dc55f578373ee \
 --publish 5000:5000 \
 --detach \
 --name spring-security-5-oauth2-login \
