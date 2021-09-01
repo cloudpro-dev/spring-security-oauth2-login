@@ -1,5 +1,6 @@
 package com.example.spring.security.oauth2login;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.Customizer;
@@ -17,6 +18,12 @@ import org.springframework.security.oauth2.client.web.OAuth2AuthorizedClientRepo
 
 @Configuration
 public class OAuth2Config {
+
+    @Value("${spring.security.oauth2.client.registration.github.clientId:GITHUB_API_CLIENT_ID}")
+    private String GITHUB_API_CLIENT_ID;
+
+    @Value("${spring.security.oauth2.client.registration.github.clientSecret:GITHUB_API_CLIENT_SECRET}")
+    private String GITHUB_API_CLIENT_SECRET;
 
     @EnableWebSecurity
     public static class OAuth2LoginSecurityConfig extends WebSecurityConfigurerAdapter {
@@ -46,8 +53,8 @@ public class OAuth2Config {
 
     private ClientRegistration githubClientRegistration() {
         return CommonOAuth2Provider.GITHUB.getBuilder("github")
-                .clientId("1d9398f0f6db8b9c3949")
-                .clientSecret("b57202c4608fb66bf587262d110faac151cf9311")
+                .clientId(GITHUB_API_CLIENT_ID)
+                .clientSecret(GITHUB_API_CLIENT_SECRET)
                 .build();
     }
 }
