@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: spring-security-oauth2-login-external
+spec:
+  type: LoadBalancer
+  selector:
+    app: spring-security-oauth2-login
+  ports:
+    - name: http
+      port: 5000
+      targetPort: 5000

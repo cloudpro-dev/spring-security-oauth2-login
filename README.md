@@ -66,7 +66,7 @@ docker exec -it spring-security-5-oauth2-login //bin//sh
 printenv
 ```
 
-## CI/CD
+## Continuous Integration
 
 This example uses [GitHub Actions workflows](https://docs.github.com/en/actions) to build the main artifacts and to publish to [Docker Hub](https://hub.docker.com/)
 
@@ -97,3 +97,27 @@ The workflow requires that you have set up two secrets in GitHub with the follow
 
 These values should correspond to an Access Token that you have previous setup in Docker Hub.
 
+## Continuous Deployment
+
+Once the image has been built to Docker Hub, we can issue a new command to deploy our application to Kubernetes.
+
+```shell
+export GITHUB_API_CLIENT_ID=d9c976bc9a08ca500bc3
+export GITHUB_API_CLIENT_SECRET=af8530051f8b2127decee80b900dc55f578373ee
+kubectl apply -f ./kubernetes/deployment.yaml
+```
+
+List the pods which have been created
+```shell
+kubectl -n spring-security-oauth2-login get pods
+```
+
+Show the environment variables set in the created instance:
+```shell
+kubectl exec spring-security-oauth2-login -- printenv
+```
+
+To enable Kubernetes to monitor the health of the application we need to include Spring Actuator.  Once included, the following URL allows us to monitor the status of the application:
+```shell
+http://localhost:5000/actuator/health
+```

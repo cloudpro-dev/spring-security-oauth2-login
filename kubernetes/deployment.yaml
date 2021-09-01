@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spring-security-oauth2-login
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: spring-security-oauth2-login
+  template:
+    metadata:
+      labels:
+        app: spring-security-oauth2-login
+    spec:
+      containers:
+        - name: spring-security-oauth2-login
+          image: cloudproconsulting/spring-security-oauth2-login:main
+          livenessProbe:
+            httpGet:
+              path: /actuator/health
+              port: 5000
+            initialDelaySeconds: 30
+            periodSeconds: 3
+          readinessProbe:
+            httpGet:
+              path: /actuator/health
+              port: 5000
+            initialDelaySeconds: 40
+            periodSeconds: 10
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 5000
+          env:
+            - name: PORT
+              value: "5000"
+            - name: GITHUB_API_CLIENT_ID
+              value: $GITHUB_API_CLIENT_ID
+            - name: GITHUB_API_CLIENT_SECRET
+              value: $GITHUB_API_CLIENT_ID
