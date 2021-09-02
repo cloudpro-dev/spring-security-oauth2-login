@@ -33,7 +33,6 @@ spec:
           env:
             - name: PORT
               value: "5000"
-            - name: GITHUB_API_CLIENT_ID
-              value: $GITHUB_API_CLIENT_ID
-            - name: GITHUB_API_CLIENT_SECRET
-              value: $GITHUB_API_CLIENT_ID
+          envFrom:
+            - secretRef:
+                name: github-oauth2-credentials
