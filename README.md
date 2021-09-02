@@ -2,6 +2,45 @@
 
 This application demonstrates how to set up and configure a Spring Boot 2.x application to secure a REST API using Spring Security 5.3. Users are redirected to authenticate with GitHub using the OAuth2 `explicit grant` flow.
 
+## GitHub Credentials
+
+To use this sample you must have a valid GitHub account.
+
+You will need to follow the steps below to set up an OAuth2 token for the application to access your GitHub account.
+
+1. Log into [GitHub](https://github.com/)
+2. Use the profile icon in the top-right of the screen to select `Settings`
+
+![Image of the User settings](images/settings.png)
+
+3. From the `Settings` menu, select the `Developer Settings` section
+
+![Image of the Developer settings](images/dev-settings.png)
+
+4. From the `Developer settings` menu, select `OAuth Apps`
+
+![Image of the OAuth Apps](images/oauth2-apps.png)
+
+5. Click the `New OAuth App` button in the top-right
+
+6. Complete the `Register a new OAuth application` form with the following details and click `Register application` to proceed.
+
+![Image of the Register form](images/register.png)
+
+7. Click the `Generate a new client secret` button
+
+![Image of Generate Client Secret button](images/credentials.png)
+
+8. Confirm your credentials to complete the process:
+
+![Image of GitHub verification screen](images/verify.png)
+
+9. You will be presented with your GitHub OAuth Client Secret.   
+
+![img.png](images/secret.png)
+
+**Important:** You should make a note of both the Client ID and Client Secret which are needed when starting up the application.
+
 ## Getting Started
 
 Build the application:
