@@ -127,7 +127,7 @@ The configuration will be triggered when:
 - Git Tag with a `v` prefix, e.g. `v1.0`
 - GitHub Pull Request on the `main` branch
 
-**Note: The Docker image will not be pushed for Pull Requests**
+**Note:** The Docker image will not be pushed (Step 5) for GitHub Pull Requests 
 
 ### Important
 The workflow requires that you have set up two secrets in GitHub with the following names:
@@ -140,23 +140,45 @@ These values should correspond to an Access Token that you have previous setup i
 
 Once the image has been built to Docker Hub, we can issue a new command to deploy our application to Kubernetes.
 
+Create a secret which holds the credentials for GitHub:
 ```shell
-export GITHUB_API_CLIENT_ID=d9c976bc9a08ca500bc3
-export GITHUB_API_CLIENT_SECRET=af8530051f8b2127decee80b900dc55f578373ee
-kubectl apply -f ./kubernetes/deployment.yaml
+kubectl create secret generic github-oauth2-credentials --from-literal=GITHUB_API_CLIENT_ID='d9c976bc9a08ca500bc3' --from-literal=GITHUB_API_CLIENT_SECRET='af8530051f8b2127decee80b900dc55f578373ee'
 ```
 
-List the pods which have been created
+Run the deployment and service configuration scripts:
 ```shell
-kubectl -n spring-security-oauth2-login get pods
+kubectl apply -f ./kubernetes
 ```
 
-Show the environment variables set in the created instance:
+Get the Deployment details:
 ```shell
-kubectl exec spring-security-oauth2-login -- printenv
+kubectl get deployment spring-security-oauth2-login
 ```
 
-To enable Kubernetes to monitor the health of the application we need to include Spring Actuator.  Once included, the following URL allows us to monitor the status of the application:
+Get the Service details:
 ```shell
-http://localhost:5000/actuator/health
+kubectl get service spring-security-oauth2-login-external
+```
+
+Get the Pod details:
+```shell
+kubectl get pods
+```
+
+Check the environment variables are available in the Pod instance:
+```shell
+kubectl exec spring-security-oauth2-login-7cd7d46f58-gz6rf -- printenv
+```
+
+To enable Kubernetes to monitor the health of the application we need to include [Spring Actuator](https://docs.spring.io/spring-boot/docs/current/reference/html/actuator.html).  
+
+Once included, the following URL allows us to monitor the status of the application:
+```shell
+curl -o - http://localhost:5000/actuator/health
+```
+
+To stop the Kubernetes instances use the following commands:
+```shell
+kubectl delete deployment/spring-security-oauth2-login
+kubectl delete service/spring-security-oauth2-login-external
 ```
