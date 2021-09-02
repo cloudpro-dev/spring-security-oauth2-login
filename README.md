@@ -167,7 +167,7 @@ kubectl get pods
 
 Check the environment variables are available in the Pod instance:
 ```shell
-kubectl exec spring-security-oauth2-login-7cd7d46f58-gz6rf -- printenv
+kubectl exec spring-security-oauth2-login-7cd7d46f58-zs62h -- printenv
 ```
 
 To enable Kubernetes to monitor the health of the application we need to include [Spring Actuator](https://docs.spring.io/spring-boot/docs/current/reference/html/actuator.html).  
@@ -175,10 +175,14 @@ To enable Kubernetes to monitor the health of the application we need to include
 Once included, the following URL allows us to monitor the status of the application:
 ```shell
 curl -o - http://localhost:5000/actuator/health
+{"status":"UP"}
 ```
 
-To stop the Kubernetes instances use the following commands:
+### Teardown
+
+To teardown the Kubernetes instance for the application:
 ```shell
 kubectl delete deployment/spring-security-oauth2-login
 kubectl delete service/spring-security-oauth2-login-external
+kubectl delete secret/github-oauth2-credentials
 ```

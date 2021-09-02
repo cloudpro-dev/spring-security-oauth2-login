@@ -30,7 +30,7 @@ public class OAuth2Config {
         @Override
         protected void configure(HttpSecurity http) throws Exception {
             http.authorizeRequests()
-                    .antMatchers("/health").permitAll()
+                    .antMatchers("/actuator/health/**").permitAll()
                     .anyRequest().authenticated()
                     .and()
                     .oauth2Login(Customizer.withDefaults());
