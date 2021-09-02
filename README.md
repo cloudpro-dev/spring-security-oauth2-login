@@ -127,7 +127,12 @@ The configuration will be triggered when:
 - Git Tag with a `v` prefix, e.g. `v1.0`
 - GitHub Pull Request on the `main` branch
 
-**Note:** The Docker image will not be pushed (Step 5) for GitHub Pull Requests 
+**Note:** The Docker image will not be pushed for GitHub Pull Requests
+
+The Docker image created in Docker Hub will be tagged based on the type of event triggered in GitHub:
+- Git Push to `main` branch will create/update Docker image tagged `main`
+- Git Tag with a `v` prefix will create/update Docker image tagged `latest`
+- Git Tag with a `v` prefix will create/update Docker image tagged with the version number e.g. `v1.0`
 
 ### Important
 The workflow requires that you have set up two secrets in GitHub with the following names:
