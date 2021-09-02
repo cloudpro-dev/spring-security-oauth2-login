@@ -29,7 +29,10 @@ public class OAuth2Config {
     public static class OAuth2LoginSecurityConfig extends WebSecurityConfigurerAdapter {
         @Override
         protected void configure(HttpSecurity http) throws Exception {
-            http.authorizeRequests(authorize -> authorize.anyRequest().authenticated())
+            http.authorizeRequests()
+                    .antMatchers("/health").permitAll()
+                    .anyRequest().authenticated()
+                    .and()
                     .oauth2Login(Customizer.withDefaults());
         }
     }
