@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: spring-security-oauth2-login
-          image: cloudproconsulting/spring-security-oauth2-login:main
+          image: cloudproconsulting/spring-security-oauth2-login:latest
           livenessProbe:
             httpGet:
               path: /actuator/health
