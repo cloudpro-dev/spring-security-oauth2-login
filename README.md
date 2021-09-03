@@ -1,6 +1,6 @@
-[![GitHub release](https://img.shields.io/github/release/docker/metadata-action.svg?style=flat-square)](https://github.com/docker/metadata-action/releases/latest)
+[![GitHub release](https://img.shields.io/github/release/cloudpro-dev/spring-security-oauth2-login.svg?style=flat-square)](https://github.com/cloudpro-dev/spring-security-oauth2-login/releases/latest)
 [![Docker](https://github.com/cloudpro-dev/spring-security-oauth2-login/actions/workflows/docker.yml/badge.svg)](https://github.com/cloudpro-dev/spring-security-oauth2-login/actions/workflows/docker.yml)
-[![Test workflow](https://img.shields.io/github/workflow/status/docker/metadata-action/test?label=test&logo=github&style=flat-square)](https://github.com/docker/metadata-action/actions?workflow=test)
+[![Test workflow](https://img.shields.io/github/workflow/status/cloudpro-dev/spring-security-oauth2-login/test?label=test&logo=github&style=flat-square)](https://github.com/cloudpro-dev/spring-security-oauth2-login/actions?workflow=test)
 
 # Spring Security 5 OAuth2 Login Quickstart
 
