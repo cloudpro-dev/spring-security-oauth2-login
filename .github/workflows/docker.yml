@@ -5,7 +5,7 @@
 # the compiled artifact and publish the image to Docker Hub for easy CD integration.
 #
 
-name: Docker
+name: docker
 
 on:
   push:
