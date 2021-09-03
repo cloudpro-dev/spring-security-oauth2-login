@@ -1,6 +1,7 @@
-[![GitHub release](https://img.shields.io/github/release/cloudpro-dev/spring-security-oauth2-login.svg?style=flat-square)](https://github.com/cloudpro-dev/spring-security-oauth2-login/releases/latest)
-[![Docker](https://github.com/cloudpro-dev/spring-security-oauth2-login/actions/workflows/docker.yml/badge.svg)](https://github.com/cloudpro-dev/spring-security-oauth2-login/actions/workflows/docker.yml)
-[![Test workflow](https://img.shields.io/github/workflow/status/cloudpro-dev/spring-security-oauth2-login/test?label=test&logo=github&style=flat-square)](https://github.com/cloudpro-dev/spring-security-oauth2-login/actions?workflow=test)
+[![GitHub release](https://img.shields.io/github/release/cloudpro-dev/spring-security-oauth2-login.svg)](https://github.com/cloudpro-dev/spring-security-oauth2-login/releases/latest)
+[![Build workflow](https://github.com/cloudpro-dev/spring-security-oauth2-login/actions/workflows/build.yml/badge.svg)](https://github.com/cloudpro-dev/spring-security-oauth2-login/actions/workflows/build.yml)
+[![Test workflow](https://github.com/cloudpro-dev/spring-security-oauth2-login/actions/workflows/test.yml/badge.svg)](https://github.com/cloudpro-dev/spring-security-oauth2-login/actions/workflows/test.yml)
+[![Docker workflow](https://github.com/cloudpro-dev/spring-security-oauth2-login/actions/workflows/docker.yml/badge.svg)](https://github.com/cloudpro-dev/spring-security-oauth2-login/actions/workflows/docker.yml)
 
 # Spring Security 5 OAuth2 Login Quickstart
 
