@@ -3,11 +3,11 @@ name: build
 on:
   push:
     branches:
-      - 'master'
+      - 'main'
       - 'releases/v*'
   pull_request:
     branches:
-      - 'master'
+      - 'main'
       - 'releases/v*'
 
   # Allows you to run this workflow manually from the Actions tab
@@ -31,4 +31,4 @@ jobs:
 
       # Build source code using Maven
       - name: Build with Maven
-        run: mvn -B package --file pom.xml
+        run: mvn -B package -D skipTests --file pom.xml

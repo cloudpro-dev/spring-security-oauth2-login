@@ -3,11 +3,11 @@ name: test
 on:
   push:
     branches:
-      - 'master'
+      - 'main'
       - 'releases/v*'
   pull_request:
     branches:
-      - 'master'
+      - 'main'
       - 'releases/v*'
 
   # Allows you to run this workflow manually from the Actions tab
