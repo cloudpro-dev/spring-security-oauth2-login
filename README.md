@@ -2,6 +2,7 @@
 [![Build workflow](https://github.com/cloudpro-dev/spring-security-oauth2-login/actions/workflows/build.yml/badge.svg)](https://github.com/cloudpro-dev/spring-security-oauth2-login/actions/workflows/build.yml)
 [![Test workflow](https://github.com/cloudpro-dev/spring-security-oauth2-login/actions/workflows/test.yml/badge.svg)](https://github.com/cloudpro-dev/spring-security-oauth2-login/actions/workflows/test.yml)
 [![Docker workflow](https://github.com/cloudpro-dev/spring-security-oauth2-login/actions/workflows/docker.yml/badge.svg)](https://github.com/cloudpro-dev/spring-security-oauth2-login/actions/workflows/docker.yml)
+[![GitHub license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/cloudpro-dev/spring-security-oauth2-login/blob/master/LICENCE)
 
 # Spring Security 5 OAuth2 Login Quickstart
 
